@@ -5,6 +5,7 @@
     AND RESULT IS 1 THEN ITH BIT IS 1
 */
 
+//WE CAN DO IT WITH BOTH LEFT SHIFT OPERATOR AS WELL AS RIGHT SHIFT OPERATOR
 
 #include <bits/stdc++.h>
 using namespace std;
