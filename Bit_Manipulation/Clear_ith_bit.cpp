@@ -12,8 +12,8 @@ int main()
     int k;
     cin >> k;
 
-    int bitmask=1<<k;
-    int newN=(n|bitmask);
+    int bitmask=~(1<<k);
+    int newN=(n&bitmask);
     cout <<"After setting the ith bit the new Value is "<< newN << endl;
 
     return 0;
