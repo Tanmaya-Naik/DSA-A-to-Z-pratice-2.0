@@ -66,7 +66,7 @@ void Reverse(vector<int>& nums,int start,int end){
 }
     int main() {
             vector<int> nums = {1, 2, 3, 4, 5, 6,7};
-            int k = 3;
+            int k = 4;
             int n=nums.size();
            
             cout << "Original Array: ";
@@ -74,8 +74,8 @@ void Reverse(vector<int>& nums,int start,int end){
                 cout << num << " ";
             }
             cout << endl;
-            Reverse(nums,0,k);
-            Reverse(nums,k+1,n-1);
+            Reverse(nums,0,k-1);
+            Reverse(nums,k,n-1);
             Reverse(nums,0,n-1);
 
 
