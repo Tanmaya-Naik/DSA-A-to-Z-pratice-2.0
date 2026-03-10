@@ -342,23 +342,78 @@
                             // }
 
 
+                                        // #include <bits/stdc++.h>
+                                        // using namespace std;
+
+                                        // int main(){
+                                        //     vector<int> nums = {1 ,0 ,2 ,3 ,0 ,4 ,0 ,1};
+                                        //     int j=0;
+
+                                        //     for(int i=1;i<nums.size();i++){
+                                        //         if(nums[i]!=0){
+                                        //             j++;
+                                        //             swap(nums[i],nums[j]);
+                                        //         }
+                                        //     }
+
+                                        //     for(int i=0;i<nums.size();i++){
+                                        //         cout<<nums[i]<<" ";
+                                        //     }
+
+                                        //     return 0;
+                                        // }
+
 #include <bits/stdc++.h>
 using namespace std;
 
 int main(){
-    vector<int> nums = {1, 2, 2, 4, 4, 6,6,6,6,7};
+    vector<int> nums1 = {1, 2, 2, 4};
+    vector<int> nums2 = {4, 6,6,6,6,7};
+
+    int i=0;
     int j=0;
 
-    for(int i=1;i<nums.size();i++){
-        if(nums[i]!=nums[j]){
+    vector<int> nums;
+    int nums1sz=nums1.size();
+    int nums2sz=nums2.size();
+
+    while(i < nums1sz && j < nums2sz){
+        if(nums1[i] <= nums2[j]){
+            if(nums.size()==0 || nums.back() != nums1[i]){
+                nums.push_back(nums1[i]);
+            }
+            i++;
+        }
+        else {
+            if(nums.size()==0 || nums.back() != nums2[j]){
+                nums.push_back(nums2[j]);
+            }
             j++;
-            swap(nums[i],nums[j]);
         }
     }
 
-    for(int i=0;i<=j;i++){
-        cout<<nums[i]<<" ";
+    while(i < nums1sz) {
+         if(nums.size()==0 || nums.back() != nums1[i]){
+                nums.push_back(nums1[i]);
+            }
+            i++;
+
     }
 
+    while( j < nums2sz){
+
+        if(nums.size()==0 || nums.back() != nums2[j]){
+                nums.push_back(nums2[j]);
+            }
+            j++;
+
+    }
+
+    for(int i=0;i<nums.size();i++){
+        cout<<nums[i]<<" ";
+    }
+    
     return 0;
 }
+
+                                        
