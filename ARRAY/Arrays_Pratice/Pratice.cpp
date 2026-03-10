@@ -262,47 +262,103 @@
                                                     // }
 
 
- #include <iostream>
-#include <vector>
+                                //  #include <iostream>
+                                // #include <vector>
+                                // using namespace std;
+
+                                // void rotateArray(vector<int>& nums, int k) {
+                                //     int n = nums.size();
+                                //     vector<int> temp;
+
+                                //     // Store the first k elements in temp
+                                //     for (int i = 0; i < k; i++) {
+                                //         temp.push_back(nums[i]);
+                                //     }
+
+                                //     // Shift the remaining elements to the front
+                                //     for (int j = k; j < n; j++) {
+                                //         nums[j - k] = nums[j];
+                                //     }
+
+                                //     // Copy the temp elements to the end
+                                //     for (int t = n - k; t < n; t++) {
+                                //         nums[t] = temp[t - (n - k)];
+                                //     }
+                                // }
+
+                                // int main() {
+                                //     vector<int> nums = {1, 2, 3, 4, 5, 6,7};
+                                //     int k = 4;
+
+                                //     cout << "Original Array: ";
+                                //     for (int num : nums) {
+                                //         cout << num << " ";
+                                //     }
+                                //     cout << endl;
+
+                                //     rotateArray(nums, k);
+
+                                //     cout << "Left Rotated Array: ";
+                                //     for (int num : nums) {
+                                //         cout << num << " ";
+                                //     }
+                                //     cout << endl;
+
+                                //     return 0;
+                                // }
+
+                //remove duplicates  of a sorted array
+
+                            // #include <bits/stdc++.h>
+                            // using namespace std;
+
+                            // int main(){
+                            //     vector<int> nums = {1, 2, 3, 1, 2,7,7,69};
+                            //     unordered_map<int, int> freq;
+
+                            //     for(int it: nums){
+                            //         freq[it]++;
+
+                            //     }
+
+                            //     for(auto it: freq){
+                            //         if(it.second == 1){
+                            //             cout<<it.first<<" ";
+                            //         }
+                            //     }
+                            // //     unordered_set<int> st;
+
+                            // //     for(int it: nums){
+                            // //         st.insert(it);
+                            // //     }
+
+                            // //    for(auto it: st){
+                            // //     cout<<it<<" ";
+                            // //    }
+
+                            //     return 0;
+
+
+                            // }
+
+
+#include <bits/stdc++.h>
 using namespace std;
 
-void rotateArray(vector<int>& nums, int k) {
-    int n = nums.size();
-    vector<int> temp;
+int main(){
+    vector<int> nums = {1, 2, 2, 4, 4, 6,6,6,6,7};
+    int j=0;
 
-    // Store the first k elements in temp
-    for (int i = 0; i < k; i++) {
-        temp.push_back(nums[i]);
+    for(int i=1;i<nums.size();i++){
+        if(nums[i]!=nums[j]){
+            j++;
+            swap(nums[i],nums[j]);
+        }
     }
 
-    // Shift the remaining elements to the front
-    for (int j = k; j < n; j++) {
-        nums[j - k] = nums[j];
+    for(int i=0;i<=j;i++){
+        cout<<nums[i]<<" ";
     }
-
-    // Copy the temp elements to the end
-    for (int t = n - k; t < n; t++) {
-        nums[t] = temp[t - (n - k)];
-    }
-}
-
-int main() {
-    vector<int> nums = {1, 2, 3, 4, 5, 6,7};
-    int k = 4;
-
-    cout << "Original Array: ";
-    for (int num : nums) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    rotateArray(nums, k);
-
-    cout << "Left Rotated Array: ";
-    for (int num : nums) {
-        cout << num << " ";
-    }
-    cout << endl;
 
     return 0;
 }
