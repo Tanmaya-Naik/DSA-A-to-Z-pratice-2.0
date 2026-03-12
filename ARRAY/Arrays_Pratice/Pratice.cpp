@@ -479,3 +479,34 @@
 
 //     return 0;
 // }
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int ans(vector<int> &arr)
+{
+    unordered_map<int, int> mpp;
+
+    for (int num : arr)
+    {
+        mpp[num]++;
+    }
+
+    for (auto &it : mpp)
+    {
+        if (it.second > (arr.size() / 2))
+        {
+            return it.first;
+        }
+    }
+
+    return -1;
+}
+
+int main()
+{
+    vector<int> arr = {2, 2, 1, 1, 1, 2, 2};
+
+    cout << ans(arr);
+    return 0;
+}
