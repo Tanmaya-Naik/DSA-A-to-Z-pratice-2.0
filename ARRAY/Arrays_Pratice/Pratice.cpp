@@ -415,32 +415,67 @@
 //     return 0;
 // }
 
-#include <bits/stdc++.h>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
 
-int main()
-{
-    vector<int> nums = {1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1};
+// int main()
+// {
+//     vector<int> nums = {1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1};
 
-    int cnt = 0;
-    int maxcnt = 0;
+//     int cnt = 0;
+//     int maxcnt = 0;
 
-    for (int i = 0; i < nums.size(); i++)
-    {
-        if (nums[i] == 1)
-        {
+//     for (int i = 0; i < nums.size(); i++)
+//     {
+//         if (nums[i] == 1)
+//         {
 
-            cnt++;
-        }
-        else{
-            cnt=0;
-        }
+//             cnt++;
+//         }
+//         else{
+//             cnt=0;
+//         }
 
-        maxcnt=max(maxcnt,cnt);
-        
-    }
+//         maxcnt=max(maxcnt,cnt);
 
-    cout << "maxcnt= " << maxcnt;
+//     }
 
-    return 0;
-}
+//     cout << "maxcnt= " << maxcnt;
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// vector<int> ans(vector<int> &arr, int target)
+// {
+//     unordered_map<int, int> mpp;
+
+//     for (int i = 0; i < arr.size(); i++)
+//     {
+//         int remain = target - arr[i];
+
+//         if (mpp.find(remain) != mpp.end())
+//         {
+//             return {mpp[remain], i};
+//         }
+
+//         mpp[arr[i]] = i;
+//     }
+
+//     return {-1, -1};
+// }
+
+// int main()
+// {
+
+//     vector<int> nums = {1, 2, 3, 1, 2, 7, 7, 69};
+//     int target = 71;
+
+//     vector<int> result = ans(nums, target);
+
+//     cout << result[0] << " " << result[1];
+
+//     return 0;
+// }
