@@ -1,33 +1,55 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int floor(vector<int> &arr, int n, int x)
-{
-    int left = 0;
-    int right = n - 1;
-    int ans = -1;
-    ;
-    while (left <= right)
-    {
-        int mid = (left + right) / 2;
-        if (arr[mid] <= x)
-        {
-            ans = arr[mid];
-            left = mid + 1;
-        }
-        else
-        {
-            right = mid - 1;
-        }
-    }
-    return ans;
-}
+class FloorCeilFinder {
+public:
+    // Function to find the floor of x
+    int findFloor(int arr[], int n, int x) {
+        int low = 0, high = n - 1;
+        int ans = -1;
 
-int main()
-{
-    vector<int> arr = {3, 5, 8, 15, 19};
-    int n = 5, x = 17;
-    int ind = floor(arr, n, x);
-    cout << "The lower bound is the index: " << ind << "\n";
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (arr[mid] <= x) {
+                ans = arr[mid];     // Potential floor
+                low = mid + 1;      // Search right side
+            } else {
+                high = mid - 1;     // Search left side
+            }
+        }
+        return ans;
+    }
+
+    // Function to find the ceiling of x
+    int findCeil(int arr[], int n, int x) {
+        int low = 0, high = n - 1;
+        int ans = -1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (arr[mid] >= x) {
+                ans = arr[mid];     // Potential ceil
+                high = mid - 1;     // Search left side
+            } else {
+                low = mid + 1;      // Search right side
+            }
+        }
+        return ans;
+    }
+
+    // Function to return both floor and ceil
+    pair<int, int> getFloorAndCeil(int arr[], int n, int x) {
+        int f = findFloor(arr, n, x);
+        int c = findCeil(arr, n, x);
+        return make_pair(f, c);
+    }
+};
+
+int main() {
+    int arr[] = {3, 4, 4, 7, 8, 10};
+    int n = 6, x = 5;
+    FloorCeilFinder finder;
+    pair<int, int> ans = finder.getFloorAndCeil(arr, n, x);
+    cout << "The floor and ceil are: " << ans.first << " " << ans.second << endl;
     return 0;
 }
